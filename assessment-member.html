@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Village Assessment - For a Village Member</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--t:#1eb9c5;--tl:#e8fafc;--tm:#b8edf1;--d:#0d0d1a;--m:#1a1a2e;--g:#555566;--l:#888899;--b:#e4e4ee;--bg:#f7f7fc;--w:#fff;--wb:#fffbeb;--wb2:#fde68a;--wt:#92400e;--sb:#f0fdf4;--sb2:#bbf7d0;--st:#166534;--sh:#f0f0f8;--gb:#fff0f0;--gb2:#fca5a5;--gt:#991b1b;--ab:#f0fdf4;--ab2:#bbf7d0;--at:#166534}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--d);line-height:1.6;font-size:15px}
+#r{max-width:680px;margin:0 auto;padding-bottom:60px}
+.hdr{background:var(--m);padding:14px 22px;display:flex;align-items:center;gap:10px}
+.hdr-dot{width:8px;height:8px;border-radius:50%;background:var(--t);flex-shrink:0}
+.hdr-t{color:#fff;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.pb{height:3px;background:#e0e0ee}.pf{height:3px;background:#f59e0b;transition:width .4s}
+.hero{background:var(--d);padding:48px 24px 40px;text-align:center}
+.hero-lbl{color:#f59e0b;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{color:#fff;font-size:24px;font-weight:800;line-height:1.3;max-width:400px;margin:0 auto 14px}
+.hero p{color:#888;font-size:13px;max-width:360px;margin:0 auto 26px;line-height:1.8}
+.sec{padding:26px 20px}
+.pill{display:inline-block;background:#fff3cd;color:#92400e;border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;margin-bottom:12px;text-transform:uppercase}
+.st{font-size:19px;font-weight:800;color:var(--m);margin-bottom:7px}
+.ss{font-size:13px;color:var(--g);margin-bottom:22px;line-height:1.75}
+.shdr{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#f59e0b;margin:20px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--b)}
+.vb{background:var(--w);border:1px solid var(--b);border-radius:8px;padding:13px 15px;margin-bottom:8px}
+.vn{font-size:14px;font-weight:700;color:var(--m);margin-bottom:2px}
+.vd{font-size:12px;color:var(--g);margin-bottom:9px;line-height:1.5}
+.qb{background:var(--w);border:1px solid var(--b);border-radius:8px;padding:13px 15px;margin-bottom:8px}
+.qt{font-size:13px;font-weight:600;color:var(--m);margin-bottom:10px;line-height:1.6}
+.sc{display:flex;gap:5px}
+.sb{flex:1;padding:8px 0;border-radius:4px;border:1.5px solid var(--b);background:var(--w);color:var(--g);font-size:13px;cursor:pointer;transition:all .15s}
+.sb:hover,.sb.a{border-color:#f59e0b;color:#f59e0b}
+.sb.a{background:#fff3cd;font-weight:700}
+.sl{display:flex;justify-content:space-between;font-size:10px;color:#bbb;margin-top:3px}
+.cb{background:var(--w);border:1px solid var(--b);border-radius:8px;padding:14px;margin-bottom:8px}
+.cq{font-size:13px;font-weight:600;color:var(--m);margin-bottom:11px;line-height:1.6}
+.co{display:flex;align-items:flex-start;gap:10px;padding:9px 11px;border-radius:6px;border:1.5px solid var(--b);margin-bottom:6px;cursor:pointer;transition:all .15s}
+.co:hover,.co.s{border-color:#f59e0b;background:#fff3cd}
+.cl{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--b);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:var(--l)}
+.co.s .cl{background:#f59e0b;border-color:#f59e0b;color:#fff}
+.ct{font-size:12px;color:var(--g);line-height:1.5}
+.co.s .ct{color:var(--m)}
+.db{background:var(--w);border:1px solid var(--b);border-radius:8px;padding:14px;margin-bottom:8px}
+.dq{font-size:13px;font-weight:600;color:var(--m);margin-bottom:12px;line-height:1.6}
+.dr{margin-bottom:10px}
+.dl{font-size:12px;color:var(--g);margin-bottom:5px;font-weight:600}
+.ds{display:flex;gap:4px}
+.dbt{flex:1;padding:7px 0;border-radius:4px;border:1.5px solid var(--b);background:var(--w);color:var(--g);font-size:12px;cursor:pointer;transition:all .15s}
+.dbt:hover,.dbt.a{border-color:#f59e0b;color:#f59e0b}
+.dbt.a{background:#fff3cd;font-weight:700}
+.bp{background:#f59e0b;color:#fff;border:none;border-radius:4px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .2s}
+.bp:hover{opacity:.88}.bp:disabled{opacity:.35;cursor:not-allowed}
+.bo{background:transparent;color:#f59e0b;border:2px solid #f59e0b;border-radius:4px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer}
+.bd{background:var(--m);color:#fff;border:none;border-radius:4px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer}
+.bd.cp{background:#22c55e}
+.bg2{background:transparent;color:var(--l);border:1px solid var(--b);border-radius:4px;padding:9px 16px;font-size:12px;cursor:pointer}
+.btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.inp{width:100%;padding:11px 13px;border:1.5px solid var(--b);border-radius:6px;font-size:13px;font-family:Arial,sans-serif;color:var(--d);background:var(--w);margin-bottom:9px;transition:border-color .15s}
+.inp:focus{outline:none;border-color:#f59e0b}
+.prv{font-size:11px;color:var(--l);margin-top:8px;line-height:1.7}
+.rb{background:var(--w);border:1px solid var(--b);border-radius:8px;padding:18px 20px;margin-bottom:12px}
+.rl{font-size:10px;font-weight:700;letter-spacing:2px;color:#f59e0b;text-transform:uppercase;margin-bottom:8px}
+.rtg{display:inline-block;background:#f59e0b;color:#fff;border-radius:4px;padding:3px 11px;font-size:11px;font-weight:700;margin-bottom:7px}
+.rtg.s{background:#eee;color:var(--g)}
+.rtg.self{background:var(--t)}
+.rd{font-size:13px;color:var(--g);line-height:1.75;margin-bottom:7px}
+.rq{font-size:13px;color:var(--m);font-weight:700;font-style:italic;line-height:1.6;border-left:3px solid #f59e0b;padding-left:12px;margin-top:8px}
+.arch{font-size:21px;font-weight:800;color:#f59e0b;margin-bottom:5px}
+.alt{background:var(--m);border-radius:6px;padding:13px 15px;margin-top:10px}
+.alt-l{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#f59e0b;margin-bottom:5px}
+.alt-t{font-size:13px;color:#ddd;line-height:1.7;font-style:italic}
+.byd{background:#fff3cd;border:1px solid var(--wb2);border-radius:6px;padding:12px 14px;margin-top:9px}
+.byd-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--wt);margin-bottom:4px}
+.byd-t{font-size:12px;color:var(--m);line-height:1.7}
+.shb{background:var(--sh);border-radius:6px;padding:11px 13px;margin-top:8px;border-left:3px solid var(--l)}
+.shb-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);margin-bottom:4px}
+.shb-t{font-size:12px;color:var(--g);line-height:1.7}
+.rdy{border-radius:6px;padding:13px 15px;margin-top:9px}
+.rdy.ok{background:var(--sb);border:1px solid var(--sb2)}.rdy.bld{background:var(--wb);border:1px solid var(--wb2)}
+.rdy-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.rdy.ok .rdy-l{color:var(--st)}.rdy.bld .rdy-l{color:var(--wt)}
+.rdy-t{font-size:12px;color:var(--d);line-height:1.75}
+.vmr{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.vmn{font-size:11px;font-weight:700;color:var(--m);width:108px;flex-shrink:0}
+.vmt{flex:1;height:7px;background:#eee;border-radius:4px;overflow:hidden}
+.vmf{height:100%;border-radius:4px;transition:width .7s}
+.vms{font-size:10px;color:var(--l);width:26px;text-align:right;flex-shrink:0}
+.th{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--l);margin:11px 0 7px;padding-top:7px;border-top:1px solid var(--b)}
+.rbr{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.rbn{font-size:12px;font-weight:700;color:var(--m);width:78px;flex-shrink:0}
+.rbt{flex:1;height:8px;background:#eee;border-radius:4px;overflow:hidden}
+.rbf{height:100%;border-radius:4px;transition:width .7s}
+.rbp{font-size:11px;color:var(--l);width:32px;text-align:right;flex-shrink:0}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}
+.cc{background:var(--bg);border-radius:6px;padding:11px 13px}
+.cc-r{font-size:12px;font-weight:700;margin-bottom:3px}
+.cc-w{font-size:11px;color:var(--g);line-height:1.5}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.vc{border-radius:6px;padding:11px 13px;border:1px solid var(--b)}
+.vc.ld{background:var(--tl);border-color:var(--tm)}
+.vc.fl{background:var(--bg)}
+.vc-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.vc.ld .vc-l{color:#158a94}.vc.fl .vc-l{color:var(--g)}
+.vc-t{font-size:12px;line-height:1.6}
+.vc.ld .vc-t{color:var(--m)}.vc.fl .vc-t{color:var(--g)}
+.mis{background:var(--bg);border-radius:6px;padding:11px 13px;margin-top:8px}
+.mis-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);margin-bottom:4px}
+.pi{display:flex;gap:8px;align-items:flex-start;margin-bottom:7px}
+.pd{width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;margin-top:6px}
+.pe{font-size:13px;color:var(--g)}
+/* Comparison blocks */
+.al-blk{border-radius:8px;padding:15px 17px;margin-bottom:12px}
+.al-blk.ok{background:var(--ab);border:1px solid var(--ab2)}
+.al-blk.mis{background:var(--gb);border:1px solid var(--gb2)}
+.al-blk.par{background:var(--wb);border:1px solid var(--wb2)}
+.al-tag{display:inline-block;border-radius:4px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:7px}
+.al-blk.ok .al-tag{background:var(--ab);color:var(--at)}
+.al-blk.mis .al-tag{background:var(--gb);color:var(--gt)}
+.al-blk.par .al-tag{background:var(--wb);color:var(--wt)}
+.al-title{font-size:14px;font-weight:700;color:var(--m);margin-bottom:5px}
+.al-txt{font-size:12px;color:var(--g);line-height:1.7}
+.cv{background:var(--m);border-radius:6px;padding:13px 15px;margin-top:9px}
+.cv-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t);margin-bottom:5px}
+.cv-t{font-size:12px;color:#ddd;line-height:1.75;font-style:italic}
+.sbs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b);border-radius:8px;overflow:hidden;margin-top:9px}
+.sbs-c{background:var(--w);padding:13px 15px}
+.sbs-l{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px}
+.sbs-c.sf .sbs-l{color:var(--t)}.sbs-c.ot .sbs-l{color:#f59e0b}
+.legend{display:flex;gap:12px;margin-bottom:7px}
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--g)}
+.leg-d{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.bcr{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bcn{font-size:12px;font-weight:700;color:var(--m);width:78px;flex-shrink:0}
+.bct{flex:1;display:flex;flex-direction:column;gap:3px}
+.bct-t{height:6px;background:#eee;border-radius:3px;overflow:hidden}
+.bct-s{height:100%;background:var(--t);border-radius:3px}
+.bct-o{height:100%;background:#f59e0b;border-radius:3px}
+.bci{font-size:10px;width:20px;text-align:right;flex-shrink:0}
+.clo{background:var(--m);border-radius:8px;padding:24px 20px;margin-top:14px;text-align:center}
+.clo-h{color:#f59e0b;font-size:16px;font-weight:800;margin-bottom:8px;line-height:1.4}
+.clo-t{color:#aaa;font-size:13px;line-height:1.8;max-width:440px;margin:0 auto 16px}
+.clo-c{color:var(--t);font-size:13px;font-weight:700;line-height:2.3}
+@media(max-width:480px){.hero h1{font-size:20px}.st{font-size:17px}.cg,.vg,.sbs{grid-template-columns:1fr}.sec{padding:20px 14px}}
+</style>
+</head>
+<body>
+<div id="r">
+<div class="hdr"><div class="hdr-dot" style="background:#f59e0b"></div><span class="hdr-t">Love Is A Group Journey &mdash; Village Member Assessment</span></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+<div id="c"></div>
+</div>
+<script>
+const V=[
+  {id:"accountable",l:"Accountable",d:"Owns actions and their impact on themselves and the village.",cl:"Integrity"},
+  {id:"dependable",l:"Dependable",d:"Shows up when they say they will. Their word is their bond.",cl:"Integrity"},
+  {id:"integrity",l:"Integrity",d:"Actions match values even when no one is watching.",cl:"Integrity"},
+  {id:"honorable",l:"Honorable",d:"Carries themselves with dignity and treats others as they want to be treated.",cl:"Integrity"},
+  {id:"honest",l:"Honest",d:"Tells the truth &mdash; with care, not cruelty &mdash; even when uncomfortable.",cl:"Truth"},
+  {id:"straightforward",l:"Straightforward",d:"Says what they mean and means what they say. No games.",cl:"Truth"},
+  {id:"fair",l:"Fair",d:"Holds the same standard for themselves that they hold for others.",cl:"Truth"},
+  {id:"reasonable",l:"Reasonable",d:"Can hear another perspective without abandoning their own.",cl:"Truth"},
+  {id:"mindful",l:"Mindful",d:"Intentional about how words and actions land before speaking or acting.",cl:"Presence"},
+  {id:"empathy",l:"Empathy",d:"Listens to understand, not just to respond.",cl:"Presence"},
+  {id:"faithful",l:"Faithful",d:"Stays committed to the people and standards they have chosen.",cl:"Presence"},
+  {id:"trustworthy",l:"Trustworthy",d:"Handles what people give them &mdash; time, honesty, vulnerability &mdash; with care.",cl:"Presence"},
+  {id:"purposeful",l:"Purposeful",d:"Moves with intention. Relationships guided by a clear why.",cl:"Drive"},
+  {id:"confidence",l:"Confidence",d:"Knows who they are and shows up as that person consistently.",cl:"Drive"},
+  {id:"determined",l:"Determined",d:"Does not quit on the people or the standards they have committed to.",cl:"Drive"},
+  {id:"loyal",l:"Loyal",d:"Stays consistent &mdash; by choice &mdash; because the relationship has earned it.",cl:"Drive"},
+];
+const RQ=[
+  {id:"rq1",t:"Steps in when someone is being treated unfairly &mdash; even when it costs them.",r:"Protector"},
+  {id:"rq2",t:"Naturally takes charge of organizing and making sure things move forward with structure.",r:"Manager"},
+  {id:"rq3",t:"Is the person people come to when they need to feel heard &mdash; without being asked.",r:"Nurturer"},
+  {id:"rq4",t:"Sets the standard and holds it &mdash; even when others want to lower it.",r:"Leader"},
+  {id:"rq5",t:"Feels responsible for the emotional safety of the people around them.",r:"Protector"},
+  {id:"rq6",t:"When there is no structure, builds one. Does not sit comfortably in chaos.",r:"Manager"},
+  {id:"rq7",t:"Notices when someone is disconnected and tends to it before they ask.",r:"Nurturer"},
+  {id:"rq8",t:"Thinks about the long-term health of the group even during individual conversations.",r:"Leader"},
+];
+const SIT=[
+  {id:"s1",q:"The village is in disagreement and tension is rising. Their first response is to:",opts:[
+    {id:"a",t:"Step in &mdash; make sure no one gets steamrolled.",sig:{Protector:2}},
+    {id:"b",t:"Organize the conversation &mdash; who speaks, what gets decided.",sig:{Manager:2}},
+    {id:"c",t:"Check in with whoever seems most hurt &mdash; they need to feel heard first.",sig:{Nurturer:2}},
+    {id:"d",t:"Bring the group back to the standard already agreed on.",sig:{Leader:2}},
+  ]},
+  {id:"s2",q:"Someone needs individual support while they are handling something important for the group:",opts:[
+    {id:"a",t:"They pause everything &mdash; make sure the person is safe first.",sig:{Protector:2}},
+    {id:"b",t:"They figure out who in the village can hold that person right now.",sig:{Manager:2,Leader:1}},
+    {id:"c",t:"They stop everything &mdash; this person needs them, the group can wait.",sig:{Nurturer:2}},
+    {id:"d",t:"They acknowledge and redirect to the right person to keep the group on track.",sig:{Leader:2}},
+  ]},
+  {id:"s3",q:"In a discussion where someone else is clearly the expert on the topic, they:",opts:[
+    {id:"a",t:"Listen and support &mdash; ready to back them up if needed.",sig:{Protector:2}},
+    {id:"b",t:"Let them lead but stay ready if structure starts to fall apart.",sig:{Manager:2}},
+    {id:"c",t:"Focus on how people in the room are receiving it &mdash; tend the energy.",sig:{Nurturer:2}},
+    {id:"d",t:"Take the back seat completely &mdash; when the true master is at work, they follow.",sig:{Leader:2}},
+  ]},
+];
+const RH=[
+  {id:"rh1",q:"Shows up in their primary role consistently &mdash; without being asked."},
+  {id:"rh2",q:"Tries to do another role's job instead of trusting that role.",rev:true},
+  {id:"rh3",q:"When someone steps into their strength, steps back and lets them lead."},
+  {id:"rh4",q:"Often seems stretched thin from carrying more than their role requires.",rev:true},
+];
+const RT=[
+  {id:"rt1",q:"Trusts the other roles in the village to handle what they cannot."},
+  {id:"rt2",q:"When a decision falls outside their strength, is comfortable handing it off."},
+  {id:"rt3",q:"Second-guesses how others in the village are doing their role.",rev:true},
+];
+const FR=[
+  {id:"f1",q:"When upset with someone in the village, addresses it directly within 24 hours."},
+  {id:"f2",q:"Is fully present in group discussions &mdash; not thinking about the next problem."},
+  {id:"f3",q:"Follows through on commitments even when it becomes inconvenient."},
+  {id:"f4",q:"Checks in on someone in the village without being asked."},
+];
+const DL=[
+  {id:"d1",q:"Keeping their word",la:"How important is this to them?",lb:"How consistently do they practice it when inconvenient?",ka:"wi",kb:"wp"},
+  {id:"d2",q:"Trusting others to handle what is not their role",la:"How important is this to them?",lb:"How consistently do they actually let go?",ka:"ti",kb:"tp"},
+];
+const CC={id:"c1",q:"When they sense tension building, their first internal response seems to be:",o:[
+  {id:"a",t:"Address it immediately &mdash; silence makes it worse.",s:"approach"},
+  {id:"b",t:"Process before saying anything.",s:"process"},
+  {id:"c",t:"Hope it resolves without a direct conversation.",s:"avoid"},
+  {id:"d",t:"Start preparing what they are going to say.",s:"prepare"},
+]};
+const CR={id:"c2",q:"When someone offers to carry something they normally carry, they:",o:[
+  {id:"a",t:"Accept and feel relieved. Being supported feels natural.",s:"open"},
+  {id:"b",t:"Appreciate it but usually say they are fine.",s:"deflect"},
+  {id:"c",t:"Feel uncomfortable &mdash; they would rather be the one helping.",s:"giver"},
+  {id:"d",t:"Accept, but feel pressure to repay quickly.",s:"reciprocal"},
+]};
+const CF={id:"c3",q:"When they step into another role temporarily and the true master shows up, they:",o:[
+  {id:"a",t:"Step back naturally and feel relieved. That is their lane.",s:"fluid"},
+  {id:"b",t:"Step back but it takes a moment to release it.",s:"aware"},
+  {id:"c",t:"Stay involved even after the other person takes over.",s:"holds"},
+  {id:"d",t:"Rarely step into other roles &mdash; they stay in their own lane.",s:"fixed"},
+]};
+const CB={id:"c4",q:"In their most important relationships right now, which feels most true?",o:[
+  {id:"a",t:"They give more than they receive.",s:"overtaxed"},
+  {id:"b",t:"They are present but not fully seen.",s:"invisible"},
+  {id:"c",t:"They are valued for what they do more than who they are.",s:"functional"},
+  {id:"d",t:"They have people around but still feel alone in it.",s:"isolated"},
+]};
+const RI={
+  Protector:{desc:"Creates safety &mdash; physical, emotional, and relational. Shows up when the village is threatened.",str:"The village trusts a Protector with their most vulnerable moments. They are the reason people feel safe enough to be honest.",bd:"The shadow of a Protector is by design. The gaps &mdash; the individual warmth, the long-term structure, the group vision &mdash; give the other roles a place.",sh:"The intensity of a Protector is the depth of their love. When they react strongly, it is because they care deeply.",bk:"A Protector can step into the Nurturer role &mdash; sometimes beautifully. But when the true Nurturer shows up, the back seat is the most powerful place a Protector can be.",alt:"Their protection is real. Honor it by knowing when they need to guard and when to hold still &mdash; because sometimes the most protective thing is letting someone else lead.",vl:["Safety and security for the whole","Stepping in when the village is threatened","Holding the perimeter so others can work"],vf:["Long-term structure &mdash; trust the Manager","Individual emotional warmth &mdash; trust the Nurturer","Group vision &mdash; trust the Leader"],vg:"Safety. The village opens up because of them.",vn:"Space and honesty. Let the village hold them sometimes.",hr:{h:"Honoring their role. The village needs exactly this.",l:"Carrying more than their role requires. That overreach costs them and the roles being covered."},tr:{h:"Trusts the other roles. That trust is what makes the village function.",l:"Finds it hard to release what is not theirs. The village cannot grow until each role trusts the others."},cff:{best:"Nurturer",why:"A Nurturer's warmth makes their protection feel like love rather than control.",ten:"Another Protector &mdash; both wired to shield, hard to let each other in."},cfp:{best:"Nurturer",why:"Together they create safety and warmth &mdash; the two foundations of a lasting partnership.",ten:"Leader &mdash; without agreed direction, two strong standards become a power struggle."},cfc:{best:"Manager",why:"They provide safety, the Manager provides structure. Children get security and direction.",ten:"Another Protector &mdash; both may compete to shield rather than letting the other lead."},cfv:{best:"Leader",why:"Direction plus safety &mdash; the village needs both to move and feel protected.",miss:"Manager &mdash; likely lacks structural discipline to sustain what they protect."},arc:{"accountable,honest":"The Fierce Protector","loyal,faithful":"The Grounded Protector","empathy,mindful":"The Gentle Protector","trustworthy,integrity":"The Steady Protector","determined,purposeful":"The Committed Protector",def:"The Reliable Protector"},pod:["Why Accountable Relationships Are Important","The Four Fundamental Roles of a Functional Village","I Don't Want To Argue"],ses:{e:"Village Building Session &mdash; Already honoring their role. The work now is finding the right village.",b:"Friendship Session &mdash; Helps define the standards that let others show up for them too."},},
+  Manager:{desc:"Creates order &mdash; structure, planning, and forward momentum. Keeps the village moving with intention.",str:"The village moves because of a Manager. Vision becomes action. Chaos becomes clarity.",bd:"The shadow of a Manager is by design. The human moments they sometimes miss give the Nurturer a place.",sh:"The empathy that drives their structure can get buried under the structure itself. People sometimes need to feel their care before they can trust what was built for them.",bk:"A Manager can step into the Leader role &mdash; often well. But when the true Leader calls the room, the back seat means executing the vision without competing with it.",alt:"Their structure is love in action. Honor it by staying close enough to the people that they know the structure was built for them.",vl:["Planning, structure, and forward momentum","Making sure nothing falls through","Turning vision into executable steps"],vf:["Emotional attunement in the moment &mdash; trust the Nurturer","Physical safety &mdash; trust the Protector","Long-term vision &mdash; trust the Leader"],vg:"Structure. The village moves because they build the road.",vn:"Warmth. Let the village remind them that people matter more than the plan.",hr:{h:"Honoring their role. The systems they build are why the village sustains itself.",l:"Trying to carry what is not theirs. Structure works when built and handed off &mdash; not when managing everyone inside it."},tr:{h:"Trusts the other roles. That trust gives the structure meaning.",l:"Finds it difficult to release the work once in motion. Build and then trust &mdash; that second part is also the role."},cff:{best:"Nurturer",why:"A Nurturer's warmth balances structural clarity &mdash; they build the plan, the Nurturer holds the people.",ten:"Another Manager &mdash; two planners create competing systems."},cfp:{best:"Leader",why:"They execute what a Leader envisions. Direction plus execution &mdash; one of the most effective partnerships.",ten:"Another Manager &mdash; without clear lanes, everything becomes a negotiation."},cfc:{best:"Protector",why:"They provide structure, the Protector provides safety. Children get discipline and security.",ten:"Nurturer &mdash; feeling versus function creates timing conflicts."},cfv:{best:"Nurturer",why:"Structural strength needs emotional warmth to balance it.",miss:"Leader &mdash; systems without shared direction become busy work."},arc:{"accountable,determined":"The Disciplined Manager","purposeful,faithful":"The Builder Manager","straightforward,fair":"The Clear Manager","trustworthy,integrity":"The Principled Manager","dependable,reasonable":"The Steady Manager",def:"The Structured Manager"},pod:["Three Steps To Improve Emotional Intelligence","What Are Accountable Relationships?","Standards, Boundaries, and Best Practice"],ses:{e:"Village Building Session &mdash; Already honoring their role. Assemble the right roles around their structure.",b:"Village Building Session &mdash; Learn to build systems that trust the other roles rather than replace them."},},
+  Nurturer:{desc:"Creates warmth &mdash; care, presence, and emotional attunement. Keeps the village connected.",str:"The village stays together because of a Nurturer. They are the glue &mdash; the person who notices and tends to the human side of everything.",bd:"The shadow of a Nurturer is by design. The group accountability, structural standards, and collective vision give the Leader and Manager their place.",sh:"A Nurturer is never fully in one place. They move between people tending to each one &mdash; which means the group discussion sometimes continues without their full presence.",bk:"A Nurturer can step into the Protector role &mdash; and that protection is sometimes the most nurturing thing they can do. But when the true Protector steps in, they take the back seat.",alt:"Their presence heals people. Honor it by being fully in the room &mdash; not just present, but landed.",vl:["Emotional connection and individual presence","Keeping people feeling valued and seen","Noticing what others miss before it becomes a wound"],vf:["Group accountability &mdash; trust the Leader","Physical and structural safety &mdash; trust the Protector and Manager","Setting direction &mdash; trust the Leader"],vg:"Warmth. The village stays together because of them.",vn:"Reciprocity. Let the village pour back into them. Cannot tend from an empty place.",hr:{h:"Honoring their role. The village stays together because of them &mdash; and that is everything.",l:"Spread across too many roles and not fully landing in any of them. Come back to the lane and go deep."},tr:{h:"Trusts the other roles. That trust allows them to do their work fully.",l:"Finds it hard to trust others to hold what they cannot. A Nurturer who carries everything depletes the village."},cff:{best:"Leader",why:"Direction and standard-setting keeps the friendship from becoming warm but stagnant.",ten:"Another Nurturer &mdash; so focused on each other's feelings that no one says the hard thing."},cfp:{best:"Protector",why:"A Protector creates safety that allows their openness to flourish. Warmth inside a perimeter.",ten:"Another Nurturer &mdash; beautifully connected, but someone needs to hold the standard."},cfc:{best:"Leader",why:"They provide emotional warmth; a Leader provides the shared standard children need.",ten:"Manager &mdash; systems can feel cold against the instinct to respond to what the child feels."},cfv:{best:"Protector",why:"Their village needs safety to match its warmth so openness does not become vulnerability.",miss:"Leader &mdash; warm and connected but may lack direction and shared accountability."},arc:{"empathy,mindful":"The Open Nurturer","faithful,loyal":"The Steady Nurturer","dependable,trustworthy":"The Faithful Nurturer","fair,reasonable":"The Grounded Nurturer","honest,straightforward":"The Honest Nurturer",def:"The Caring Nurturer"},pod:["Searching For Reasons To Stay","Arguing Is Good For Relationships","My Optimistic Nature"],ses:{e:"Connective Session &mdash; Already honoring their role. Find the right village &mdash; people whose roles complete theirs.",b:"One-on-One Session &mdash; Clarify what they need and build an accountability practice so they give from a full place."},},
+  Leader:{desc:"Creates direction &mdash; vision, standards, and accountability. Keeps the village aligned to its purpose.",str:"The village knows where it is going because of a Leader. The standard is held when others want to lower it.",bd:"The shadow of a Leader is by design. The individual emotional presence, structural execution, and physical safety give the Nurturer, Manager, and Protector their place.",sh:"A Leader cares more than almost anyone &mdash; that is what drives the vision. But their instinct is to resolve everything in the group collectively. The individual in front of them can feel like a data point in that plan.",bk:"A Leader can step into the Manager role &mdash; often well. But when the true Manager has the structure in hand, the back seat means leading from the vision and trusting the execution.",alt:"Their vision is built from love. Honor it by remembering that the individual is not a distraction from the mission &mdash; they are the mission.",vl:["Direction, vision, and the long-term standard","Calling the group to account","Creating the platform where everything gets resolved"],vf:["Individual emotional presence &mdash; trust the Nurturer","Structural execution &mdash; trust the Manager","Physical safety &mdash; trust the Protector"],vg:"Direction. The village knows where it is going because of them.",vn:"Presence. Not always in the group &mdash; sometimes one on one. The village needs to know they see the individual.",hr:{h:"Honoring their role. The village has direction because of them &mdash; and that is irreplaceable.",l:"Trying to lead and do every other role at the same time. That is not leadership &mdash; that is exhaustion."},tr:{h:"Trusts the other roles. That trust is what makes them a Leader worth following.",l:"Finds it hard to release what they cannot see being done. Trust is not loss of leadership. It is the highest expression of it."},cff:{best:"Nurturer",why:"Warmth keeps their directness from feeling like enforcement rather than care.",ten:"Another Leader &mdash; the friendship can become a debate over whose vision is right."},cfp:{best:"Manager",why:"A Manager executes their vision with discipline. Direction plus execution.",ten:"Another Leader &mdash; two leaders without agreed lanes compete for direction."},cfc:{best:"Nurturer",why:"They hold the standard; a Nurturer holds the child's heart. Accountability and warmth together.",ten:"Another Leader &mdash; children feel the tension of two competing standards."},cfv:{best:"Manager",why:"Their vision needs execution. A Manager turns what they see into what the village does.",miss:"Nurturer &mdash; accountable and directional but may lack warmth. People follow without feeling connected."},arc:{"accountable,honest":"The Accountable Leader","integrity,faithful":"The Principled Leader","determined,purposeful":"The Visionary Leader","straightforward,fair":"The Clear Leader","confident,reasonable":"The Balanced Leader",def:"The Standards Leader"},pod:["The Four Fundamental Roles of a Functional Village","What Do You Bring To The Table?","Why Accountable Relationships Are Important"],ses:{e:"Connective Session &mdash; Already honoring their role. Assemble the right village around their vision.",b:"Six-Week Group Session &mdash; A container to lead while practicing trust in other roles."},},
+};
+
+let S={step:"intro",mn:"",an:"",email:"",vr:{},ra:{},sa:{},ha:{},ta:{},fa:{},da:{},cc:null,cr:null,cf:null,cb:null,selfData:null};
+
+function rsc(){const sc={Protector:0,Manager:0,Nurturer:0,Leader:0};RQ.forEach(q=>{if(S.ra[q.id])sc[q.r]+=S.ra[q.id];});SIT.forEach(s=>{const c=s.opts.find(o=>o.id===S.sa[s.id]);if(c)Object.entries(c.sig).forEach(([r,v])=>{sc[r]=(sc[r]||0)+v;});});return sc;}
+function srt(){return Object.entries(rsc()).sort((a,b)=>b[1]-a[1]);}
+function pri(){return srt()[0]?.[0];}
+function sec(){return srt()[1]?.[0];}
+function tot(){return Object.values(rsc()).reduce((a,b)=>a+b,0)||1;}
+function vp(){const t=V.reduce((s,v)=>(S.vr[v.id]||0)+s,0)||1;return V.map(v=>({...v,sc:S.vr[v.id]||0,pct:Math.round((S.vr[v.id]||0)/t*100)})).sort((a,b)=>b.sc-a.sc);}
+function tv(){return vp().filter(v=>v.sc>=4);}
+function hsc(){let t=0,c=0;RH.forEach(q=>{const v=S.ha[q.id];if(v){t+=q.rev?(6-v):v;c++;}});return c?Math.round(t/c):0;}
+function tsc(){let t=0,c=0;RT.forEach(q=>{const v=S.ta[q.id];if(v){t+=q.rev?(6-v):v;c++;}});return c?Math.round(t/c):0;}
+function elv(){const h=hsc(),t=tsc();if(h>=4&&t>=4)return"e";if(h>=3&&t>=3)return"s";return"b";}
+function arch(role,vals){const a=RI[role].arc,vi=vals.map(v=>v.id);for(const k of Object.keys(a)){if(k==="def")continue;if(k.split(",").every(p=>vi.includes(p)))return a[k];}return a.def;}
+function fc(s){return s>=4?"#f59e0b":s===3?"#fcd34d":s===2?"#fef3c7":"#e0e0ee";}
+function vd(){return V.every(v=>S.vr[v.id]>=1);}
+function rd(){return RQ.every(q=>S.ra[q.id])&&SIT.every(s=>S.sa[s.id]);}
+function htd(){return RH.every(q=>S.ha[q.id])&&RT.every(q=>S.ta[q.id]);}
+function bd(){return FR.every(f=>S.fa[f.id])&&DL.every(d=>S.da[d.ka]&&S.da[d.kb])&&S.cc&&S.cr&&S.cf&&S.cb;}
+function ss(p,v){S={...S,...{[p]:v}};render();}
+function svr(id,v){S.vr={...S.vr,[id]:v};render();}
+function sra(id,v){S.ra={...S.ra,[id]:v};render();}
+function ssa(qi,oi){S.sa={...S.sa,[qi]:oi};render();}
+function sha(id,v){S.ha={...S.ha,[id]:v};render();}
+function sta(id,v){S.ta={...S.ta,[id]:v};render();}
+function sfa(id,v){S.fa={...S.fa,[id]:v};render();}
+function sda(k,v){S.da={...S.da,[k]:v};render();}
+function sc2(k,v){S[k]=v;render();}
+function sf(f,v){S[f]=v;}
+function setP(v){const el=document.getElementById("pf");if(el)el.style.width=v+"%";}
+
+function sub(){
+  const mn=document.getElementById("vmn").value.trim(),an=document.getElementById("van").value.trim(),e=document.getElementById("ve").value.trim();
+  if(!mn||!an||!e){alert("Please fill in all fields.");return;}
+  if(!/\S+@\S+\.\S+/.test(e)){alert("Please enter a valid email.");return;}
+  S.mn=mn;S.an=an;S.email=e;
+  ss("step","values");
+}
+
+function send(){
+  const p=pri(),tv2=tv(),ar=arch(p,tv2),el=elv();
+  fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({access_key:"5d00fcf9-869e-4f9e-8113-d4656267d3ca",subject:"Village Member Assessment &mdash; "+S.an+" assessing "+S.mn+" ("+ar+")",from_name:"The LoveSnob Village Assessment",assessor:S.an,email:S.email,member_assessed:S.mn,archetype:ar,primary_role:p,secondary_role:sec(),excellence_level:el,honor_score:hsc(),trust_score:tsc(),top_values:tv2.map(v=>v.l).join(", "),recommended_session:RI[p].ses[el==="b"?"b":"e"]})}).catch(()=>{});}
+
+function sqb(id,txt,obj,fn,rev){const v=S[obj]?.[id];return`<div class="qb"><div class="qt">${txt}</div><div class="sc">${[1,2,3,4,5].map(n=>`<button class="sb${v===n?" a":""}" onclick="${fn}('${id}',${n})">${n}</button>`).join("")}</div><div class="sl"><span>${rev?"Almost always":"Not at all"}</span><span>${rev?"Almost never":"Completely"}</span></div></div>`;}
+function scb(cfg,key){return`<div class="cb"><div class="cq">${cfg.q}</div>${cfg.o.map(o=>`<div class="co${S[key]===o.id?" s":""}" onclick="sc2('${key}','${o.id}')"><div class="cl">${o.id.toUpperCase()}</div><div class="ct">${o.t}</div></div>`).join("")}</div>`;}
+function scc(c){return`<div class="cg"><div class="cc"><div class="cc-r" style="color:var(--t)">Best with: ${c.best}</div><div class="cc-w">${c.why}</div></div><div class="cc"><div class="cc-r" style="color:#b45309">Natural tension</div><div class="cc-w">${c.ten}</div></div></div>`;}
+
+function buildComparison(p,ar){
+  if(!S.selfData)return"";
+  const sd=S.selfData;
+  const roleMatch=sd.primary===p;
+  const rolePartial=sd.secondary===p||sec()===sd.primary;
+  const selfValIds=sd.topValues.map(v=>v.id),otherValIds=tv().map(v=>v.id);
+  const shared=selfValIds.filter(id=>otherValIds.includes(id));
+  const ROLES=["Protector","Manager","Nurturer","Leader"];
+  const myTot=tot(),sdTot=sd.totalScore;
+  const mySc=rsc(),sdSc=sd.roleScores;
+  let out="";
+  out+=`<div class="rb"><div class="rl">Self vs. How You See Them</div>
+  <div style="background:var(--bg);border:1px solid var(--b);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:12px">
+    <div style="background:var(--w);padding:13px 14px"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t);margin-bottom:5px">${S.mn} sees themselves</div><div style="font-size:14px;font-weight:800;color:var(--t)">${sd.archetype}</div><div style="display:inline-block;background:var(--t);color:#fff;border-radius:4px;padding:2px 9px;font-size:11px;font-weight:700;margin-top:5px">${sd.primary}</div></div>
+    <div style="background:var(--w);padding:13px 14px"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#f59e0b;margin-bottom:5px">${S.an} sees ${S.mn} as</div><div style="font-size:14px;font-weight:800;color:#f59e0b">${ar}</div><div style="display:inline-block;background:#f59e0b;color:#fff;border-radius:4px;padding:2px 9px;font-size:11px;font-weight:700;margin-top:5px">${p}</div></div>
+  </div>`;
+  if(roleMatch){out+=`<div class="al-blk ok"><div class="al-tag">&#10003; Role Aligned</div><div class="al-title">${S.an} sees ${S.mn} as the ${p} they are.</div><div class="al-txt">This is the foundation of a healthy village dynamic. When you see someone in the role they actually carry, you can trust them with the right responsibilities and receive from them what they are built to give.</div></div>`;}
+  else if(rolePartial){out+=`<div class="al-blk par"><div class="al-tag">&#9888; Partial Role Read</div><div class="al-title">${S.an} sees ${S.mn} as a ${sd.primary}. ${S.mn} is a ${p}.</div><div class="al-txt">You are seeing a secondary role more than the primary one. ${S.mn} may not have had enough space to show up fully in their primary role yet. A session will help clarify this together.</div><div class="cv"><div class="cv-l">The Conversation to Have</div><div class="cv-t">"I may have been seeing you more as a ${sd.primary} than as the ${p} you actually are. I want to understand what that means for how I show up with you."</div></div></div>`;}
+  else{out+=`<div class="al-blk mis"><div class="al-tag">&#9889; Role Misread</div><div class="al-title">${S.an} sees ${S.mn} as a ${sd.primary}. ${S.mn} is a ${p}.</div><div class="al-txt">When a ${sd.primary} is managed as a ${p}, they are held to the wrong expectations. They are giving what a ${p} gives &mdash; and being evaluated by what a ${sd.primary} would do. That is not a character failure. That is a village misread. And it is fixable.</div><div class="cv"><div class="cv-l">The Conversation to Have</div><div class="cv-t">"I realized I have been seeing you as a ${sd.primary} and expecting what a ${sd.primary} brings. But you are a ${p}. I have been evaluating you by the wrong standard. Tell me what you actually bring that I have been missing."</div></div></div>`;}
+  out+=`<div class="rb" style="margin-top:12px"><div class="rl">Role Strength Comparison</div><div class="legend"><div class="leg"><div class="leg-d" style="background:var(--t)"></div>${S.mn}'s self-view</div><div class="leg"><div class="leg-d" style="background:#f59e0b"></div>How ${S.an} sees them</div></div>${ROLES.map(r=>{const sp=Math.round((sdSc[r]||0)/sdTot*100),op=Math.round((mySc[r]||0)/myTot*100),diff=Math.abs(sp-op);return`<div class="bcr"><div class="bcn">${r}</div><div class="bct"><div class="bct-t"><div class="bct-s" style="width:${sp}%"></div></div><div class="bct-t"><div class="bct-o" style="width:${op}%"></div></div></div><div class="bci" style="color:${diff>=20?"#991b1b":diff>=10?"#92400e":"#166534"}">${diff>=20?"&#9889;":diff>=10?"&#9888;":"&#10003;"}</div></div>`;}).join("")}<div style="font-size:11px;color:var(--g);margin-top:6px;line-height:1.6">&#9889; significant gap &nbsp;|&nbsp; &#9888; moderate gap &nbsp;|&nbsp; &#10003; aligned</div></div>`;
+  if(shared.length>=3){out+=`<div class="al-blk ok"><div class="al-tag">&#10003; Value Aligned</div><div class="al-title">You share ${shared.length} of the same core values.</div><div class="al-txt">Shared: ${shared.map(id=>V.find(v=>v.id===id)?.l).filter(Boolean).join(", ")}. Strong value alignment is the foundation of village trust.</div></div>`;}
+  else if(shared.length>=1){out+=`<div class="al-blk par"><div class="al-tag">&#9888; Partial Value Overlap</div><div class="al-title">You share ${shared.length} core value${shared.length===1?"":"s"}.</div><div class="al-txt">Shared: ${shared.map(id=>V.find(v=>v.id===id)?.l).filter(Boolean).join(", ")||"none"}. Some shared ground &mdash; but there are values ${S.mn} leads with that may not have been fully recognized.</div></div>`;}
+  else{out+=`<div class="al-blk mis"><div class="al-tag">&#9889; Value Gap</div><div class="al-title">You do not share any of the same top core values.</div><div class="al-txt">This does not mean the relationship cannot work &mdash; it means the foundation needs to be built deliberately. Different values in a village are healthy. But they need to be named, understood, and respected.</div><div class="cv"><div class="cv-l">The Conversation to Have</div><div class="cv-t">"I want to understand what you value most &mdash; not just what I assume you value. Walk me through your top values and tell me what they look like in how you actually show up."</div></div></div>`;}
+  out+=`<div class="cv" style="margin-top:10px"><div class="cv-l">The AccountableLove Principle</div><div class="cv-t">When a Leader sees a Nurturer as a Protector &mdash; that is the problem. They are not managing the person in front of them. They are managing a role they assumed. The assessment gives both people the same information so they walk into the session prepared &mdash; not blindsided. Honesty before comfort. Always.</div></div>`;
+  out+="</div>";
+  return out;
+}
+
+function render(){
+  const C=document.getElementById("c");if(!C)return;
+  if(S.step==="intro"){
+    setP(0);
+    C.innerHTML=`<div class="hero"><div class="hero-lbl">Village Member Assessment</div><h1>Do you truly see them for who they are?</h1><p>Take the full assessment about someone in your village &mdash; answering every question based on how you observe them. The gap between how they see themselves and how you see them is the most honest conversation a village can have.</p><button class="bp" onclick="ss('step','setup')">Begin</button></div>
+    <div class="sec"><div style="background:var(--wb);border:1px solid var(--wb2);border-radius:8px;padding:16px;margin-top:4px"><div style="font-size:11px;font-weight:700;color:var(--wt);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase">How This Works Best</div><div style="font-size:13px;color:var(--d);line-height:1.7">This works best when the village member has <strong>already taken their own assessment</strong>. Their self-report will be shown side by side with how you see them &mdash; revealing the gap between their identity and your perception. If they have not taken it yet, you can still proceed and share results with them afterward.</div></div></div>`;
+  }
+  else if(S.step==="setup"){
+    setP(5);
+    C.innerHTML=`<div class="sec"><div class="pill">Getting Started</div><div class="st">Who are you assessing?</div><div class="ss">Answer every question based on how you actually observe this person &mdash; not how you hope they show up or assume they do. Be honest. The goal is clarity.</div><div style="background:var(--w);border:1px solid var(--b);border-radius:8px;padding:20px"><input class="inp" id="vmn" type="text" placeholder="Village member's first name" oninput="sf('mn',this.value)" value="${S.mn}"/><input class="inp" id="van" type="text" placeholder="Your first name" oninput="sf('an',this.value)" value="${S.an}"/><input class="inp" id="ve" type="email" placeholder="Your email address" oninput="sf('email',this.value)" value="${S.email}"/><div class="btns"><button class="bp" onclick="sub()">Begin Assessment</button></div><p class="prv">Your information is private. Used only to send results and follow up personally. No spam. Ever.</p></div></div>`;
+  }
+  else if(S.step==="values"){
+    setP(15);
+    C.innerHTML=`<div class="sec"><div class="pill">Section 1 of 5</div><div class="st">How you see ${S.mn}'s values</div><div class="ss">Rate each value 1&ndash;5 based on how consistently you observe ${S.mn} practicing it. Be honest &mdash; not how you hope they show up, but how you actually see them.</div>${["Integrity","Truth","Presence","Drive"].map(cl=>`<div class="shdr">${cl}</div>${V.filter(v=>v.cl===cl).map(v=>`<div class="vb"><div class="vn">${v.l}</div><div class="vd">${v.d}</div><div class="sc">${[1,2,3,4,5].map(n=>`<button class="sb${S.vr[v.id]===n?" a":""}" onclick="svr('${v.id}',${n})">${n}</button>`).join("")}</div><div class="sl"><span>Rarely see this</span><span>See this daily</span></div></div>`).join("")}`).join("")}<div class="btns"><button class="bp" onclick="ss('step','roles')" ${!vd()?"disabled":""}>Continue</button></div></div>`;
+  }
+  else if(S.step==="roles"){
+    setP(30);
+    C.innerHTML=`<div class="sec"><div class="pill">Section 2 of 5</div><div class="st">How ${S.mn} shows up</div><div class="ss">Rate how strongly each statement describes ${S.mn} &mdash; based on how you actually observe them.</div><div class="shdr">How They Show Up</div>${RQ.map(q=>sqb(q.id,q.t,"ra","sra",false)).join("")}<div class="shdr">Real Situations</div>${SIT.map(s=>`<div class="cb"><div class="cq">${s.q}</div>${s.opts.map(o=>`<div class="co${S.sa[s.id]===o.id?" s":""}" onclick="ssa('${s.id}','${o.id}')"><div class="cl">${o.id.toUpperCase()}</div><div class="ct">${o.t}</div></div>`).join("")}</div>`).join("")}<div class="btns"><button class="bp" onclick="ss('step','honortrust')" ${!rd()?"disabled":""}>Continue</button><button class="bo" onclick="ss('step','values')">Back</button></div></div>`;
+  }
+  else if(S.step==="honortrust"){
+    setP(48);
+    C.innerHTML=`<div class="sec"><div class="pill">Section 3 of 5</div><div class="st">Role Honor &amp; Trust</div><div class="ss">How well does ${S.mn} live their role &mdash; and how well do they trust the other roles to carry what is not theirs?</div><div class="shdr">Honoring the Role</div>${RH.map(q=>sqb(q.id,q.q,"ha","sha",q.rev||false)).join("")}<div class="shdr">Trusting the Other Roles</div>${RT.map(q=>sqb(q.id,q.q,"ta","sta",q.rev||false)).join("")}<div class="btns"><button class="bp" onclick="ss('step','behavior')" ${!htd()?"disabled":""}>Continue</button><button class="bo" onclick="ss('step','roles')">Back</button></div></div>`;
+  }
+  else if(S.step==="behavior"){
+    setP(65);
+    C.innerHTML=`<div class="sec"><div class="pill">Section 4 of 5</div><div class="st">How ${S.mn} actually shows up</div><div class="ss">Answer based on what you actually observe &mdash; not what you hope or assume.</div><div class="shdr">Day-to-Day Practice</div>${FR.map(f=>sqb(f.id,f.q,"fa","sfa",false)).join("")}<div class="shdr">Accountability Gap</div><div style="font-size:12px;color:var(--g);margin-bottom:14px;line-height:1.7">Rate each twice &mdash; how important it seems to them, then how consistently you observe them practicing it.</div>${DL.map(d=>`<div class="db"><div class="dq">${d.q}</div><div class="dr"><div class="dl">${d.la}</div><div class="ds">${[1,2,3,4,5].map(v=>`<button class="dbt${S.da[d.ka]===v?" a":""}" onclick="sda('${d.ka}',${v})">${v}</button>`).join("")}</div></div><div class="dr"><div class="dl">${d.lb}</div><div class="ds">${[1,2,3,4,5].map(v=>`<button class="dbt${S.da[d.kb]===v?" a":""}" onclick="sda('${d.kb}',${v})">${v}</button>`).join("")}</div></div></div>`).join("")}<div class="shdr">Conflict, Support &amp; Fluidity</div>${scb(CC,"cc")}${scb(CR,"cr")}${scb(CF,"cf")}<div class="shdr">Where ${S.mn} Seems to Be Right Now</div>${scb(CB,"cb")}<div class="btns"><button class="bp" onclick="finalize()" ${!bd()?"disabled":""}>See Results</button><button class="bo" onclick="ss('step','honortrust')">Back</button></div></div>`;
+  }
+  else if(S.step==="results"){
+    setP(100);
+    const p=pri(),s2=sec(),ri=RI[p],tv2=tv(),ar=arch(p,tv2),el=elv(),vp2=vp(),sr=srt(),t=tot();
+    const strong=vp2.filter(v=>v.sc>=4),pres=vp2.filter(v=>v.sc===3),dev=vp2.filter(v=>v.sc<=2);
+    const rc=["#f59e0b","#fcd34d","#fef3c7","#e0e0ee"];
+    const elab=el==="e"?"VILLAGE READY":el==="s"?"LARGELY HONORING THEIR ROLE":"STILL BUILDING";
+    const etxt=el==="e"?S.mn+" appears to be honoring their role. They do not need fixing. They need the right village.":el==="s"?S.mn+" appears to be largely honoring their role with some areas still developing.":S.mn+" appears to still be building toward fully honoring their role. The session below is where the work starts.";
+    C.innerHTML=`<div class="sec">
+    <div class="pill">Your Results</div>
+    <div class="st">How you see ${S.mn}.</div>
+    <div class="ss">This is your read of ${S.mn} &mdash; built from every answer you gave. Below you will see this compared to how they see themselves.</div>
+    ${buildComparison(p,ar)}
+    <div class="rb"><div class="rl">Your Read &mdash; Archetype</div><div class="arch">${ar}</div><div class="rd">Based on how you observe ${S.mn} &mdash; their role as a ${p} and the values you see them practice most.</div><div class="rdy ${el==="b"?"bld":"ok"}"><div class="rdy-l">${elab}</div><div class="rdy-t">${etxt}</div></div><div class="alt"><div class="alt-l">AccountableLove Truth</div><div class="alt-t">${ri.alt}</div></div></div>
+    <div class="rb"><div class="rl">Role Breakdown &mdash; As You See It</div><div class="rd" style="margin-bottom:10px">How strongly each role shows up in ${S.mn} based on your observation.</div>${sr.map(([r,s],i)=>{const pct=Math.round(s/t*100);return`<div class="rbr"><div class="rbn">${r}</div><div class="rbt"><div class="rbf" style="width:${pct}%;background:${rc[i]}"></div></div><div class="rbp">${pct}%</div></div>`;}).join("")}<div class="rtg" style="margin-top:10px">${p}</div><div class="rd">${ri.desc}</div><div class="rq">${ri.str}</div></div>
+    <div class="rb"><div class="rl">Secondary Role</div><div class="rtg s">${s2}</div><div class="rd" style="margin-top:7px">${RI[s2].desc}</div></div>
+    <div class="rb"><div class="rl">Strength &amp; Shadow &mdash; By Design</div><div class="rd">${ri.sh}</div><div class="byd"><div class="byd-l">By Design</div><div class="byd-t">${ri.bd}</div></div><div class="shb"><div class="shb-l">When to Take the Back Seat</div><div class="shb-t">${ri.bk}</div></div></div>
+    <div class="rb"><div class="rl">Role Honor &amp; Trust &mdash; Honor: ${hsc()}/5 | Trust: ${tsc()}/5</div><div class="shb"><div class="shb-l">Role Honor</div><div class="shb-t">${ri.hr[hsc()>=4?"h":"l"]}</div></div><div class="shb" style="margin-top:7px"><div class="shb-l">Role Trust</div><div class="shb-t">${ri.tr[tsc()>=4?"h":"l"]}</div></div></div>
+    <div class="rb"><div class="rl">Value Map &mdash; As You See ${S.mn}</div><div class="rd" style="margin-bottom:10px">All 16 values mapped based on your observation of ${S.mn}.</div>${strong.length?`<div class="th">They Lead With</div>${strong.map(v=>`<div class="vmr"><div class="vmn">${v.l}</div><div class="vmt"><div class="vmf" style="width:${v.sc/5*100}%;background:${fc(v.sc)}"></div></div><div class="vms">${v.sc}/5</div></div>`).join("")}`:""}${pres.length?`<div class="th">Present &amp; Growing</div>${pres.map(v=>`<div class="vmr"><div class="vmn">${v.l}</div><div class="vmt"><div class="vmf" style="width:${v.sc/5*100}%;background:${fc(v.sc)}"></div></div><div class="vms">${v.sc}/5</div></div>`).join("")}`:""}${dev.length?`<div class="th">The Village Carries These for Them</div>${dev.map(v=>`<div class="vmr"><div class="vmn">${v.l}</div><div class="vmt"><div class="vmf" style="width:${v.sc/5*100}%;background:${fc(v.sc)}"></div></div><div class="vms">${v.sc}/5</div></div>`).join("")}`:""}</div>
+    <div class="rb"><div class="rl">Village Position</div><div class="vg"><div class="vc ld"><div class="vc-l">Where They Lead</div><div class="vc-t">${ri.vl.map(l=>"&bull; "+l).join("<br>")}</div></div><div class="vc fl"><div class="vc-l">Where They Follow</div><div class="vc-t">${ri.vf.map(l=>"&bull; "+l).join("<br>")}</div></div></div><div class="vg" style="margin-top:8px"><div class="vc ld"><div class="vc-l">What They Give</div><div class="vc-t">${ri.vg}</div></div><div class="vc fl"><div class="vc-l">What They Need Back</div><div class="vc-t">${ri.vn}</div></div></div></div>
+    <div class="rb"><div class="rl">As a Friend</div>${scc(ri.cff)}</div>
+    <div class="rb"><div class="rl">As a Partner</div>${scc(ri.cfp)}</div>
+    <div class="rb"><div class="rl">As a Co-Parent</div>${scc(ri.cfc)}</div>
+    <div class="rb"><div class="rl">In the Village</div>${scc(ri.cfv)}<div class="mis" style="margin-top:8px"><div class="mis-l">What Their Village Is Missing</div><div style="font-size:12px;color:var(--d)">${ri.cfv.miss}</div></div></div>
+    <div class="rb"><div class="rl">Recommended Session</div><div class="rd">${ri.ses[el==="b"?"b":"e"]}</div></div>
+    <div class="rb"><div class="rl">Suggested Podcast Episodes</div>${ri.pod.map(ep=>`<div class="pi"><div class="pd"></div><div class="pe">${ep}</div></div>`).join("")}</div>
+    <div class="btns"><button class="bg2" onclick="fullReset()">Start Over</button></div>
+    <div class="clo"><div class="clo-h">Honesty before comfort. Always.</div><div class="clo-t">The assessment gives both people the same information so they walk into the session prepared &mdash; not blindsided. That is the AccountableLove way. Love Is A Group Journey.</div><div class="clo-c">thelovesnobs@loveisagroupjourney.com<br>(347) 321-4238</div></div>
+    </div>`;
+  }
+}
+
+function finalize(){
+  send();
+  ss("step","results");
+}
+
+function fullReset(){
+  S={step:"intro",mn:"",an:"",email:"",vr:{},ra:{},sa:{},ha:{},ta:{},fa:{},da:{},cc:null,cr:null,cf:null,cb:null,selfData:null};
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
